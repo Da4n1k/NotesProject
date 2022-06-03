@@ -13,13 +13,13 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
-        beforeEnter: (to, from,next) =>{
-            if(localStorage.getItem('auth') === 'false' || localStorage.length === 0 || localStorage.getItem('auth') === 'undefined'){
-                next()
-            }else{
-                next({name: 'notes'})
-            }
-        }
+        // beforeEnter: (to, from,next) =>{
+        //     if(localStorage.getItem('auth') === 'false' || localStorage.length === 0 || localStorage.getItem('auth') === 'undefined'){
+        //         next()
+        //     }else{
+        //         next({name: 'notes'})
+        //     }
+        // }
     },
     {
         path: '/notes',

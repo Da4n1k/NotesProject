@@ -9,9 +9,15 @@ const itemListSchema = new Schema({
         type: String,
         required: true
     },
+    date:{
+        type: String,
+    },
     description:{
         type:String,
         required: true,
+    },
+    IDtgAuthor:{
+        type:String,
     }
     // description:{
     //     type: String,

@@ -20,11 +20,11 @@
           <p><ion-icon name="calendar-outline"></ion-icon>Calendar</p>
           </div>
         </router-link>
-        <router-link to="/alertUs">
-        <div class="dies">
-         <p><ion-icon name="notifications-outline"></ion-icon>Notifications</p>
-        </div>
-        </router-link>
+<!--        <router-link to="/alertUs">-->
+<!--        <div class="dies">-->
+<!--         <p><ion-icon name="notifications-outline"></ion-icon>Notifications</p>-->
+<!--        </div>-->
+<!--        </router-link>-->
         <div class="dies">
           <p><ion-icon name="git-merge-outline"></ion-icon>In development</p>
         </div>
@@ -72,6 +72,8 @@ export default {
         localStorage.removeItem('auth')
         localStorage.removeItem('person')
         localStorage.removeItem('email')
+        localStorage.removeItem('itemsContainer')
+        localStorage.removeItem('IDtg')
         router.push('/')
       })
       .catch((e) =>{
@@ -92,7 +94,6 @@ export default {
   background: #ffffff;
 }
 
-
 a{
   text-decoration: none;
   color: white;
@@ -107,6 +108,7 @@ a{
   align-items: center;
   flex-direction: column;
   background: #271c55;
+  color: #FFFFFF;
 .top_panel{
   width: 100%;
   height: 550px;

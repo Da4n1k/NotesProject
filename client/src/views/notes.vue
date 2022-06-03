@@ -36,7 +36,12 @@
       <form @submit.prevent="addListNote">
         <label>
           <input placeholder="Title of the note" v-model="title" required>
+          <ion-icon name="notifications-outline" @click="check"></ion-icon>
         </label>
+        <label>
+          <input type="date" v-model="dateLog" v-if="checked">
+        </label>
+
         <label>
           <textarea placeholder="The text of the entry" v-model="text" required></textarea>
         </label>
@@ -78,9 +83,11 @@ export default {
   data: () => ({
     isModalVisibleAdd: false,
     isModalVisEdit: false,
+    checked: false,
     search: '',
     title: '',
     text: '',
+    dateLog: '',
     editTitle: '',
     editText: '',
     editID: '',
@@ -92,7 +99,6 @@ export default {
     })
     .then((response) =>{
       this.items = response.data
-      console.log(response.data)
     }).catch((e) =>{
       console.log(e)
     })
@@ -114,9 +120,12 @@ export default {
       this.isModalVisEdit = false;
     },
     addListNote: async function(){
+      console.log(this.dateLog)
       await axios.post('http://localhost:3000/api/addListNote',{
         title: this.title,
         text: this.text,
+        date: this.dateLog,
+        IDtg: localStorage.getItem('IDtg'),
         nickname: localStorage.getItem('person')
       })
       .then(() =>{
@@ -127,8 +136,10 @@ export default {
       .catch((e)=>{
         console.log(e)
       })
+      location.reload()
     },
     deleteNote: async function(item){
+      location.reload()
       await axios.delete('http://localhost:3000/api/deleteNotes/' + item._id)
     },
     updateItem: async function(){
@@ -143,6 +154,10 @@ export default {
       .catch((e)=>{
         console.log(e)
       })
+      location.reload()
+    },
+    check(){
+      this.checked = this.checked === false;
     },
     searchItem(){
       console.log(this.$refs["pol-search"].value)
@@ -174,6 +189,7 @@ input, button{
   flex-direction: row;
   font-family: 'ISOCPEUR',serif;
   font-size: 22px;
+  background: #191e3c;
   .content_realm{
     width: 100%;
     min-height: 100vh;
@@ -248,15 +264,13 @@ input, button{
       justify-content: flex-start;
       flex-wrap: wrap;
       .notification{
-        width: 250px;
-        height: auto;
+        width: 300px;
         display: flex;
         flex-direction: row;
         margin: 20px;
         background: #ccb2f1;
         .entry{
           width: 100%;
-          height: 100%;
           h3{
             font-size: 35px;
             padding: 12px;
@@ -293,7 +307,7 @@ input, button{
   align-items: center;
   .data_add{
     width: 500px;
-    height: 350px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -337,13 +351,27 @@ input, button{
       }
       label{
         margin-left: 20px;
+        display: flex;
+        align-items: center;
         input{
           width: 220px;
           height: 40px;
-          margin-top: 20px;
+          margin-top: 15px;
           outline: none;
           padding: 5px;
           font-size: 16px;
+        }
+        input[type=date]{
+          margin-bottom: 10px;
+        }
+        ion-icon{
+          width: 30px;
+          height: 30px;
+          font-size: 15px;
+          color: #FFFFFF;
+          cursor: pointer;
+          margin-top: 15px;
+          margin-left: 20px;
         }
         textarea{
           width: 96%;

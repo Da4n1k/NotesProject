@@ -40,8 +40,8 @@ export default {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background: #191e3c;
-    color: #FFFFFF;
+    background: #ffffff;
+    color: #000000;
   }
   #app{
     width: 100%;

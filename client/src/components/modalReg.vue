@@ -45,7 +45,8 @@ export default {
       await axios.post('http://localhost:3000/api/register', {
         username: this.username,
         email: this.email,
-        password: this.password
+        password: this.password,
+        telegramID: '',
       })
       .then((response) =>{
         console.log(response)

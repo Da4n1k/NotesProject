@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.9",
     "morgan": "^1.10.0",
+    "node-telegram-bot-api": "^0.57.0",
     "vue-fullcalendar": "^1.0.9",
     "vue-router": "^4.0.14"
   },

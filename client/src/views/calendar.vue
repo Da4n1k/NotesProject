@@ -13,6 +13,8 @@ import '@fullcalendar/core/vdom'
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
+// let containerItem = JSON.parse(localStorage.getItem('itemsContainer'))
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "calendar",
@@ -28,11 +30,12 @@ export default {
         plugins: [dayGridPlugin],
         initialView: 'dayGridMonth',
         events: [
-          {}
         ]
-      }
+      },
     }
-  }
+  },
+  methods: {
+  },
 }
 
 </script>
@@ -54,7 +57,7 @@ body{
   display: flex;
   flex-direction: row;
   font-family: 'ISOCPEUR',serif;
-
+  color: #FFFFFF;
   .box-cal{
     width: 100%;
     height: 100%;

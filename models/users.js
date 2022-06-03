@@ -13,7 +13,12 @@ const user = new Schema({
     },
     password:{
         type: String,
-        unique: true
+        unique: true,
+        required: true
+    },
+    telegramID:{
+        type: String,
+        unique: true,
     }
 });
 

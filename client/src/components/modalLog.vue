@@ -44,6 +44,7 @@ export default {
             localStorage.setItem('auth', response.data.success)
             localStorage.setItem('person', response.data.nickname)
             localStorage.setItem('email', response.data.personLog)
+            localStorage.setItem('IDtg', response.data.idTg)
             router.push('/notes')
           })
           .catch((error) =>{

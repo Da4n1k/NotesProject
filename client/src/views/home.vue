@@ -1,4 +1,5 @@
 <template>
+  <div class="all_content">
   <header>
     <div class="logo">
       <router-link to="/"><h1>SEVENTEEN</h1></router-link>
@@ -38,10 +39,11 @@
   <ModalL v-show="isModalVisible2" @close="closeModal2"></ModalL>
 
   <div class="body-content">
-    <div class="preview">
-      <h1 class="toc">Do everything on time with <span>SEVENTEEN!</span></h1>
-      <div class="imglog"></div>
-      <img src="" alt="">
+    <div class="preview" >
+      <div class="imglog">
+        <img :src="require('@/assets/home.png')" alt="home">
+        <h1 class="toc">Do everything on time with <span>SEVENTEEN!</span></h1>
+      </div>
     </div>
 
     <div class="about-project">
@@ -76,7 +78,9 @@
 
     <div class="function">
       <div class="block-about">
-        <div class="img"></div>
+        <div class="img">
+          <img :src="require('@/assets/scr1.png')" alt="src">
+        </div>
         <div class="block-text">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta doloremque exercitationem harum magni, non possimus rerum sapiente sint unde.</p>
         </div>
@@ -85,10 +89,14 @@
         <div class="block-text">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi eveniet laudantium nesciunt quas sint. Officia totam veritatis voluptate! Ab assumenda, eaque eveniet exercitationem facere id nesciunt odit quibusdam reiciendis voluptatem.</p>
         </div>
-        <div class="img"></div>
+        <div class="img">
+          <img :src="require('@/assets/src2.png')" alt="src">
+        </div>
       </div>
       <div class="block-about">
-        <div class="img"></div>
+        <div class="img">
+          <img :src="require('@/assets/src3.png')" alt="src">
+        </div>
         <div class="block-text">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores hic inventore magni nemo pariatur porro quam recusandae repellat repellendus, repudiandae saepe sit sunt suscipit ullam ut vel veniam, veritatis voluptate! Assumenda, iure.</p>
         </div>
@@ -110,13 +118,13 @@
     </div>
   </footer>
   <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import modalReg from "@/components/modalReg";
 import modalLog from "@/components/modalLog";
 import axios from "axios";
-
 
 export default {
   name: "body-guests",
@@ -164,6 +172,7 @@ export default {
     this.item = response.data;
   }
 }
+
 </script>
 
 <style lang="less">
@@ -184,7 +193,7 @@ header {
   .logo{
     font-size: 18px;
     a{
-      color: #fcc83e;
+      color: #f04e41;
     }
   }
   .controller-menu{
@@ -202,7 +211,7 @@ header {
       li{
         font-size: 22px;
         a{
-          color: #FFFFFF;
+          color: #000000;
         }
       }
     }
@@ -247,7 +256,7 @@ header {
 .toc{
   font-size: 40px;
   span{
-    color: #fcc83e;
+    color: #f04e41;
   }
 }
 .body-content{
@@ -269,7 +278,13 @@ header {
   .imglog{
     width: 140vh;
     height: 75vh;
-    background: rgba(185, 187, 186, 0.72);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 450px;
+    }
   }
 }
 .about-project{
@@ -338,6 +353,10 @@ header {
       margin-left: 30px;
       margin-right: 30px;
       background: rgba(185, 187, 186, 0.72);
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     .block-text{
       width: 150vh;
