@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const PORT = 3000
 
-const mongoURI = 'mongodb+srv://da4a:nomokon@cluster0.c2vqw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const mongoURI = '';
 const store = new MongoDBSession({
     uri: mongoURI,
     collection: 'mySessions',
@@ -194,7 +194,7 @@ app.post('/addUserID', async (req,res)=>{
 
 
 const TelegramBot = require('node-telegram-bot-api')
-const token = "5341700488:AAH5iqXI7cwehelZqFKpKwY4Ky-W_ZblZXU"
+const token = ""
 const bot = new TelegramBot(token, {polling: true})
 
 const userID = []
